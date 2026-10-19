@@ -1,0 +1,27 @@
+//using wokwi
+{
+  "version": 1,
+  "author": "seyfiw",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 38.4, "left": 4.84, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu", "top": -130.58, "left": 146.32, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servoPitch", "top": 55.6, "left": 259.2, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servoYaw", "top": 180, "left": 260, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu:VCC", "esp:3V3", "red", [] ],
+    [ "imu:GND", "esp:GND.2", "black", [] ],
+    [ "imu:SDA", "esp:21", "green", [] ],
+    [ "imu:SCL", "esp:22", "blue", [] ],
+    [ "servoPitch:V+", "esp:5V", "red", [] ],
+    [ "servoPitch:GND", "esp:GND.1", "black", [] ],
+    [ "servoPitch:PWM", "esp:18", "orange", [] ],
+    [ "servoYaw:V+", "esp:5V", "red", [] ],
+    [ "servoYaw:GND", "esp:GND.1", "black", [] ],
+    [ "servoYaw:PWM", "esp:19", "orange", [] ]
+  ],
+  "dependencies": {}
+}
